@@ -1,14 +1,18 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const authRoutes = require('./routes/authRoutes');
-// const cors = require('cors')
+const db = require('./config/db'); // Import the MongoDB connection from db.js
 
-// app.use(cors)
-
-// Other middleware and configurations...
+// Middleware
+app.use(express.json()); // Parse JSON request bodies
+app.use(express.urlencoded({ extended: true })); // Parse URL-encoded request bodies
+app.use(cors());
 
 // Use the authentication routes
 app.use('/api', authRoutes);
+
+// Other middleware and configurations...
 
 // Start the Express app
 const port = process.env.PORT || 3000;
