@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // MongoDB connection URL (replace with your own)
-const mongoURI = 'mongodb://localhost:27017/db';
+const mongoURI = 'mongodb://127.0.0.1:27017/CardsDb';
 
 // Connect to MongoDB
 mongoose.connect(mongoURI, {
@@ -14,7 +14,7 @@ const db = mongoose.connection;
 
 // Event handling for connection success and error
 db.on('connected', () => {
-  console.log('Connected to MongoDB');
+  console.log('Connected to MongoDB'); 
 });
 
 db.on('error', (err) => {
