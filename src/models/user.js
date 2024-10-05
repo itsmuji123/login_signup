@@ -1,6 +1,5 @@
-const db = require('../config/db'); // Import the MySQL connection
+const db = require('../config/db');
 
-// User model for interacting with the MySQL database
 class User {
   static create(username, password) {
     return new Promise((resolve, reject) => {
@@ -9,7 +8,7 @@ class User {
         if (err) {
           return reject(err);
         }
-        resolve(results.insertId); // Return the ID of the newly created user
+        resolve(results.insertId); 
       });
     });
   }
@@ -21,7 +20,7 @@ class User {
         if (err) {
           return reject(err);
         }
-        resolve(results[0]); // Return the user object
+        resolve(results[0]); 
       });
     });
   }
@@ -33,12 +32,11 @@ class User {
         if (err) {
           return reject(err);
         }
-        resolve(results[0]); // Return the user object
+        resolve(results[0]);
       });
     });
   }
 
-  // Additional methods for updating, deleting, etc. can be added here
 }
 
 module.exports = User;
